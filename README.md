@@ -7,7 +7,7 @@ This is a short technical test that should take no more than 3-4 hours to comple
    * Deploy the AMI in an EC2 instance.
    * Create an entry in Route 53 with the Elastic IP that has been assigned to the EC2 instance.
    * Stop the EC2 instance.
-   * Destroy the EC2 instance and all of it's resources.
+   * Terminate the EC2 instance and all of it's resources.
 You will probably need to install the AWS cli to do this task.
 
 What we are looking for:

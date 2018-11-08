@@ -1,0 +1,18 @@
+{
+  "Comment": "Create Record Set for IPv4",
+  "Changes": [
+    {
+      "Action": "ACTION_VAR",
+      "ResourceRecordSet": {
+        "Name": "avtest",
+        "Type": "A",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "IPv4_address"
+          }
+        ]
+      }
+    }
+  ]
+}

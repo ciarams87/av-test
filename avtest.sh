@@ -2,7 +2,6 @@
 
 
 PROGNAME=$(basename $0)
-# use current date in seconds to create unique variable names
 ami='ami-047bb4163c506cd98'
 region='eu-west-1'
 domain='av-test-fake-domain.ie'

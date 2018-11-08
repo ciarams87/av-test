@@ -9,7 +9,7 @@ domain='av-test-fake-domain.ie'
 instance_id=
 elastic_ip=
 hosted_zone_id=
-name=
+name='avtest'
 
 usage(){
     echo "Welcome to the avtest. The below are optional arguments:"
@@ -90,15 +90,13 @@ create_hz_route_53(){
 }
 
 update_record_route_53(){
-    # expects hosted zone id, IPv4 address, and action. Can also pass name parameter if required.
+    # expects hosted zone id, IPv4 address, action, and name.
     # create a tempfile for the batch file
     tmpfile=$(mktemp)
     cp resource_record_set.json $tmpfile
     sed -i "s/IPv4_address/$2/g" "$tmpfile"
     sed -i "s/ACTION_VAR/$3/g" "$tmpfile"
-    if [ -n $4 ]; then
-        sed -i "s/avtest/$4/g" "$tmpfile"
-    fi
+    sed -i "s/avtest/$4/g" "$tmpfile"
     echo "Updating the record set for hosted zone $1"
     aws route53 get-hosted-zone --id $1 && \
     aws route53 change-resource-record-sets --hosted-zone-id $1 --change-batch file://$tmpfile
